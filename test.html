@@ -1,87 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <style>
-    .neon-rainbow {
-  width: 320px;
-  height: 160px;
-  border-radius: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 22px;
-  font-weight: bold;
-  background: linear-gradient(90deg, #ff008c, #00eaff, #fffc00, #ff008c);
-  background-size: 400%;
-  color: white;
-  text-shadow: 0 0 15px white;
-  animation: rainbowMove 4s linear infinite, rainbowGlow 2s infinite alternate;
-}
+<meta charset="UTF-8">
+<title>AI Future Planner</title>
 
-@keyframes rainbowMove {
-  0% { background-position: 0%; }
-  100% { background-position: 300%; }
-}
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-@keyframes rainbowGlow {
-  0% {
-    box-shadow: 0 0 20px red, 0 0 40px yellow;
+  body {
+    height: 100vh;
+    overflow-x: hidden;
+    background: url("https://i.ibb.co/5TSvZLP/city-bg.jpg") no-repeat center center/cover;
+    font-family: 'Orbitron', sans-serif;
+    color: #fff;
   }
-  100% {
-    box-shadow: 0 0 40px cyan, 0 0 80px magenta;
+
+  /* ---- MAIN UI CONTAINER ---- */
+  .panel {
+    width: 90%;
+    max-width: 450px;
+    margin: auto;
+    padding: 30px;
+    background: rgba(0, 255, 255, 0.08);
+    border: 2px solid #00eaff;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px #00eaff;
+    margin-top: 40px;
   }
-}
 
-    body {
-  background: #000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  font-family: sans-serif;
-}
-
-.neon-box {
-  width: 300px;
-  height: 150px;
-  color: #0ff;
-  border: 2px solid #0ff;
-  border-radius: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-size: 22px;
-  font-weight: bold;
-  box-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
-  animation: neonGlow 2s infinite alternate ease-in-out;
-}
-
-/* Glow Animation */
-@keyframes neonGlow {
-  0% {
-    box-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
-    border-color: #0ff;
+  h1 {
+    text-align: center;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px cyan;
   }
-  100% {
-    box-shadow: 0 0 30px #0ff, 0 0 60px #0ff, 0 0 90px cyan;
-    border-color: cyan;
-  }
-}
 
-  </style>
+  input, select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px solid #00eaff;
+    background: rgba(0, 255, 255, 0.05);
+    color: cyan;
+    margin-top: 10px;
+    outline: none;
+  }
+
+  button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 20px;
+    background: #00eaff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 0 15px #00eaff;
+    transition: 0.3s;
+  }
+  button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #00eaff;
+  }
+
+  /* ---- MATRIX SECTION ---- */
+  .matrix {
+    width: 90%;
+    max-width: 450px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(0, 255, 255, 0.07);
+    border: 2px solid #00eaff;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 15px #00eaff;
+  }
+
+  .day {
+    margin-bottom: 15px;
+    padding: 12px;
+    background: rgba(0, 200, 255, 0.1);
+    border-left: 3px solid cyan;
+    border-radius: 8px;
+  }
+
+  /* ---- SNOW EFFECT ---- */
+  .snow {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 9999;
+  }
+
+  .snow span {
+    position: absolute;
+    top: -10px;
+    background: white;
+    border-radius: 50%;
+    opacity: .9;
+    filter: drop-shadow(0 0 6px #00eaff);
+    animation: fall linear infinite;
+  }
+
+  @keyframes fall {
+    0% { transform: translateY(-100vh) translateX(0); }
+    100% { transform: translateY(120vh) translateX(30px); }
+  }
+
+  :root { --snowCount: 160; }
+
+  .snow span:nth-child(n) {
+    left: calc(100% * var(--i) / var(--snowCount));
+    width: calc(2px + (var(--i) % 6));
+    height: calc(2px + (var(--i) % 6));
+    animation-duration: calc(5s + (var(--i) * 0.2s));
+    animation-delay: calc(var(--i) * -0.3s);
+  }
+
+</style>
 </head>
 <body>
-  <div class="neon-box">
-  Neon Animated Container
-</div>
-<div class="neon-blue">Blue Neon</div>
-<div class="neon-pink">Pink Neon</div>
-<div class="neon-rainbow">Rainbow Neon</div>
 
+<!-- SNOW LAYER -->
+<div class="snow"></div>
+
+<!-- MAIN UI -->
+<div class="panel">
+  <h1>AI FUTURE PLANNER</h1>
+  <input type="text" placeholder="Enter Name">
+  <input type="email" placeholder="Enter Email">
+  <select>
+    <option>Select Future Path...</option>
+    <option>Artificial Intelligence</option>
+    <option>Quantum Robotics</option>
+    <option>Neural Engineering</option>
+    <option>Cybersecurity Specialist</option>
+  </select>
+
+  <button>UNLOCK POTENTIAL</button>
+</div>
+
+<!-- MATRIX -->
+<div class="matrix">
+  <h2 style="text-align:center; margin-bottom:15px; text-shadow:0 0 10px cyan;">Your Learning Matrix</h2>
+
+  <div class="day">⭐ Day 1: Cybernetic Reading, Neural Input</div>
+  <div class="day">⭐ Day 2: AI Teaching, Network Mapping</div>
+  <div class="day">⭐ Day 3: System Sync, Quantum Upgrade</div>
+  <div class="day">⭐ Day 4: Future Skills, AI Deployment</div>
+</div>
+
+
+<script>
+ // Generate Snowflakes
+ const snowContainer = document.querySelector(".snow");
+ for (let i = 1; i <= 160; i++) {
+   const flake = document.createElement("span");
+   flake.style.setProperty("--i", i);
+   snowContainer.appendChild(flake);
+ }
+</script>
 
 </body>
 </html>
