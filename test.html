@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .neon-rainbow {
+  width: 320px;
+  height: 160px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  font-weight: bold;
+  background: linear-gradient(90deg, #ff008c, #00eaff, #fffc00, #ff008c);
+  background-size: 400%;
+  color: white;
+  text-shadow: 0 0 15px white;
+  animation: rainbowMove 4s linear infinite, rainbowGlow 2s infinite alternate;
+}
+
+@keyframes rainbowMove {
+  0% { background-position: 0%; }
+  100% { background-position: 300%; }
+}
+
+@keyframes rainbowGlow {
+  0% {
+    box-shadow: 0 0 20px red, 0 0 40px yellow;
+  }
+  100% {
+    box-shadow: 0 0 40px cyan, 0 0 80px magenta;
+  }
+}
+
+    body {
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: sans-serif;
+}
+
+.neon-box {
+  width: 300px;
+  height: 150px;
+  color: #0ff;
+  border: 2px solid #0ff;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  box-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+  animation: neonGlow 2s infinite alternate ease-in-out;
+}
+
+/* Glow Animation */
+@keyframes neonGlow {
+  0% {
+    box-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+    border-color: #0ff;
+  }
+  100% {
+    box-shadow: 0 0 30px #0ff, 0 0 60px #0ff, 0 0 90px cyan;
+    border-color: cyan;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <div class="neon-box">
+  Neon Animated Container
+</div>
+<div class="neon-blue">Blue Neon</div>
+<div class="neon-pink">Pink Neon</div>
+<div class="neon-rainbow">Rainbow Neon</div>
+
+
+</body>
+</html>

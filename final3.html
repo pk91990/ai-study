@@ -691,97 +691,99 @@
                 </div>
 
 
+                <div class="chatbot-main">
 
-                <div class="chatbot-container">
-                              <div class="chatbot-header">
-                                <h1>🤖 Study Chatbot</h1>
-                                <p>Ask me about DSA, C, OS, and more!</p>
-                              </div>
-
-                              <div class="chat-messages" id="chatMessages">
-                                <div class="message bot">
-                                  <div class="message-content">
-                                    👋 Hello! I'm your AI Study Assistant. I can help you with:
-                                    <div class="list-item">7-day DSA and C learning plans</div>
-                                    <div class="list-item">Study schedules based on your available time</div>
-                                    <div class="list-item">Algorithm explanations with examples</div>
-                                    <div class="list-item">MCQs from various subjects</div>
-                                    <p style="margin-top: 10px; font-size: 12px; opacity: 0.8;">Try asking me any of the quick prompts below!</p>
-                                  </div>
-                                </div>
-                              </div>
-
-                              <div class="input-area">
-                                <input 
-                                  type="text" 
-                                  id="userInput" 
-                                  placeholder="Ask me anything..." 
-                                  autocomplete="off"
-                                >
-                                <button class="chatbot-btn" onclick="sendMessage()">Send</button>
-                              </div>
-
-                              <div class="quick-prompts" style="padding: 0 15px 15px;">
-                                <button class="quick-btn" onclick="quickPrompt('Make a 7-day plan for DSA and C in parallel')">📅 7-Day DSA & C Plan</button>
-                                <button class="quick-btn" onclick="quickPrompt('I have 3 hours today, what should I do?')">⏰ 3-Hour Study Plan</button>
-                                <button class="quick-btn" onclick="quickPrompt('Explain bubble sort in simple language')">🔤 Bubble Sort Explained</button>
-                                <button class="quick-btn" onclick="quickPrompt('Give 10 MCQs from OS – process scheduling')">❓ OS MCQs</button>
-                              </div>
-                            </div>
-
-
-                <div class="quiz-container" style="display:none; width: 100%; background: white; border-radius: 12px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); overflow-y: auto; max-height: 90vh;">
-                  <div class="header-row">
-                    <div>
-                      <h1>AI Question & Quiz Generator</h1>
-                      <div class="subtitle">Generate questions with Gemini, take the quiz, and track your weak topics.</div>
+                  <div class="chatbot-container">
+                    <div class="chatbot-header">
+                      <h1>🤖 Study Chatbot</h1>
+                      <p>Ask me about DSA, C, OS, and more!</p>
+                    </div>
+                    
+                    <div class="chat-messages" id="chatMessages">
+                      <div class="message bot">
+                        <div class="message-content">
+                          👋 Hello! I'm your AI Study Assistant. I can help you with:
+                          <div class="list-item">7-day DSA and C learning plans</div>
+                          <div class="list-item">Study schedules based on your available time</div>
+                          <div class="list-item">Algorithm explanations with examples</div>
+                          <div class="list-item">MCQs from various subjects</div>
+                          <p style="margin-top: 10px; font-size: 12px; opacity: 0.8;">Try asking me any of the quick prompts below!</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="input-area">
+                      <input 
+                      type="text" 
+                      id="userInput" 
+                      placeholder="Ask me anything..." 
+                      autocomplete="off"
+                      >
+                      <button class="chatbot-btn" onclick="sendMessage()">Send</button>
+                    </div>
+                    
+                    <div class="quick-prompts" style="padding: 0 15px 15px;">
+                      <button class="quick-btn" onclick="quickPrompt('Make a 7-day plan for DSA and C in parallel')">📅 7-Day DSA & C Plan</button>
+                      <button class="quick-btn" onclick="quickPrompt('I have 3 hours today, what should I do?')">⏰ 3-Hour Study Plan</button>
+                      <button class="quick-btn" onclick="quickPrompt('Explain bubble sort in simple language')">🔤 Bubble Sort Explained</button>
+                      <button class="quick-btn" onclick="quickPrompt('Give 10 MCQs from OS – process scheduling')">❓ OS MCQs</button>
                     </div>
                   </div>
-
-                  <!-- Quiz Config Form -->
-                  <div class="config">
-                    <div class="grid">
+                </div>
+                  
+                  
+                  <div class="quiz-container" style="display:none; width: 100%; background: white; border-radius: 12px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); overflow-y: auto; max-height: 90vh;">
+                    <div class="header-row">
                       <div>
-                        <label for="subject">Subject</label>
-                        <input id="subject" type="text" placeholder="e.g. Physics, C Programming" />
-                      </div>
-                      <div>
-                        <label for="topic">Topic</label>
-                        <input id="topic" type="text" placeholder="e.g. Pointers, Newton's Laws" />
-                      </div>
-                      <div>
-                        <label for="difficulty">Difficulty</label>
-                        <select id="difficulty">
-                          <option value="easy">Easy</option>
-                          <option value="medium" selected>Medium</option>
-                          <option value="hard">Hard</option>
-                        </select>
-                      </div>
-                      <div>
-                        <label for="numQuestions">Number of Questions</label>
-                        <input id="numQuestions" type="number" min="1" max="15" value="5" />
+                        <h1>AI Question & Quiz Generator</h1>
+                        <div class="subtitle">Generate questions with Gemini, take the quiz, and track your weak topics.</div>
                       </div>
                     </div>
-
-                    <div class="grid">
-                      <div>
-                        <label for="format">Question Type</label>
-                        <select id="format">
-                          <option value="mcq">MCQ only</option>
-                          <option value="short">Short answer only</option>
-                          <option value="mixed" selected>Mixed (MCQ + Short)</option>
-                        </select>
+                    
+                    <!-- Quiz Config Form -->
+                    <div class="config">
+                      <div class="grid">
+                        <div>
+                          <label for="subject">Subject</label>
+                          <input id="subject" type="text" placeholder="e.g. Physics, C Programming" />
+                        </div>
+                        <div>
+                          <label for="topic">Topic</label>
+                          <input id="topic" type="text" placeholder="e.g. Pointers, Newton's Laws" />
+                        </div>
+                        <div>
+                          <label for="difficulty">Difficulty</label>
+                          <select id="difficulty">
+                            <option value="easy">Easy</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="hard">Hard</option>
+                          </select>
+                        </div>
+                        <div>
+                          <label for="numQuestions">Number of Questions</label>
+                          <input id="numQuestions" type="number" min="1" max="15" value="5" />
+                        </div>
                       </div>
+                      
+                      <div class="grid">
+                        <div>
+                          <label for="format">Question Type</label>
+                          <select id="format">
+                            <option value="mcq">MCQ only</option>
+                            <option value="short">Short answer only</option>
+                            <option value="mixed" selected>Mixed (MCQ + Short)</option>
+                          </select>
+                        </div>
+                      </div>
+                      
+                      <button class="btn-primary" id="generateBtn-quiz">🚀 Generate Quiz with Gemini</button>
+                      <button class="btn-secondary" id="loadWeakBtn" type="button">🧠 Use Weak Topics Only</button>
+                      
+                      <div class="status" id="status"></div>
                     </div>
-
-                    <button class="btn-primary" id="generateBtn-quiz">🚀 Generate Quiz with Gemini</button>
-                    <button class="btn-secondary" id="loadWeakBtn" type="button">🧠 Use Weak Topics Only</button>
-
-                    <div class="status" id="status"></div>
-                  </div>
-
-                  <hr />
-
+                    
+                    <hr />
+                    
                   <!-- Quiz Section -->
                   <div>
                     <div class="section-title">Your Quiz</div>
@@ -829,7 +831,7 @@ const planner =document.querySelector('.smart-planner');
 const study =document.querySelector('.study-sidebar');
 const quiz = document.querySelector('.quiz-sidebar');
 const taskGenerator = document.querySelector('.task-generator');
-const chatbotContainer = document.querySelector('.chatbot-container');
+const chatbotContainer = document.querySelector('.chatbot-main');
 const quizContainer = document.querySelector('.quiz-container');
 
 planner.addEventListener('click', () => {
