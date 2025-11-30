@@ -22,6 +22,8 @@
         height: calc(100vh - 60px);
     }
 
+    
+
     .container {
  
   color: #0ff;
@@ -46,43 +48,81 @@
   }
 }
 
+.container h2{
+  background-image: url(Elegant-Wedding-Frame-PNG-Clipart-Background.png);
 
-
-.bg{
-  position: sticky;
-  top: 0;
-  left: 0;
-  width: auto;
-  height: 100%;
-  display: flex;
-  border-radius: 12px;
+  background-size: 200px 80px;
+  background-position:center ;
+  background-repeat: no-repeat;
+  padding-top: 70px;
+  padding-bottom: 70px;
+  margin-top: -30px;
+  filter: drop-shadow(0 0 10px #0ff);
+  margin-bottom: -40px;
   
-  background-color: #354e56;
-  opacity: 0.9;
-  z-index: -1; /* fixed */
+
+
  
-} 
+
+  
+
+}
 
 
 
 
 
-.container {
+
+
+
+
+.container  {
+  display: flex;
+  left: 10px;
+backdrop-filter: blur(5px) ;
+background: rgba(97, 99, 104, 0.15);
+
+-webkit-backdrop-filter: blur(5px);
+
+
   
   width: 500px;
-  position: relative; /* required for z-index */
+
   
   background-size: cover;
   height: 540px;
-  padding: 20px;
+  padding: 30px;
   border-radius: 12px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   max-height: 600px;
-  display: flex;
+  filter: drop-shadow(0 0 10px rgb(246, 246, 246));
+
   flex-direction: column;
   z-index: 0; /* now works */
   
 }
+
+
+.container h3{
+  background-image: url(Elegant-Wedding-Frame-PNG-Clipart-Background.png);
+
+  background-size: 200px 80px;
+  background-position:center ;
+  background-repeat: no-repeat;
+  padding-top: 70px;
+  padding-bottom: 70px;
+  margin-top: -30px;
+  filter: drop-shadow(0 0 10px #0ff);
+  margin-bottom: -30px;
+  
+
+
+ 
+
+  
+
+}
+
 
     .task-generator {
       display: flex;
@@ -106,7 +146,21 @@
   }
 }
 
+.container label {
+      font-weight: bold;
+      margin-top: 10px;
+      display: block;
+      font-size: 20px;
+      color: #83e7eb;
 
+    
+  font-family: "Pacifico", cursive;
+  font-weight: 300;
+  font-style: normal;
+
+
+
+    }
 
 
 
@@ -119,32 +173,88 @@
   
     
     }
-
-    input {
+    .container   input {
       width: 100%;
       padding: 10px;
       margin-top: 5px;
-      border: 1px solid #ccc;
+      border: 2px solid #4c9da0;
       border-radius: 8px;
+      outline: none;
+      font-size: 14px;  
+
+      background: rgba(65, 167, 208, 0.1);
+      
+
     }
+
+     input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 2px solid #4c9da0;
+      border-radius: 8px;
+      outline: none;
+      font-size: 14px;  
+
+     
+      
+
+    }
+   .container input::placeholder{
+      color: #1e3333;
+      font-family: "Pacifico", cursive;
+      font-weight: 100;
+      font-style: normal;
+
+    }
+
+    .text{
+      box-shadow: inset 0 0 10px #00ffff, 0 0 20px #00ffff;
+      outline: none;
+      background: rgba(108, 222, 239, 0.1);
+    }
+    .container button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      background-image: url(dark-light-blue-abstract-surface.jpg);
+
+      background-position: center;
+      background-size: cover;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: transform 0.2s;
+      backdrop-filter: backdrop(5px) ;
+     box-shadow: inset 0 0 10px #00ffff, 0 0 20px #00ffff;
+
+    }
+ 
 
     button {
       width: 100%;
       padding: 12px;
       margin-top: 15px;
-      background: #0058ff;
+     
+     
       color: white;
       border: none;
       border-radius: 8px;
       cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+    
     }
 
     button:hover {
-      background: #003fcc;
+      transform: scale(1.06);
     }
 
     .task {
-      background: #eef2ff;
+      background: #4d5160;
       padding: 10px;
       margin: 8px 0;
       border-radius: 8px;
@@ -230,6 +340,7 @@
 }
 .sidebar {
   animation: slideIn 2s ease forwards;
+  min-width: 250px;
 }
 
 @keyframes slideIn {
