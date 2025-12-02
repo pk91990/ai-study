@@ -129,6 +129,8 @@ background: rgba(97, 99, 104, 0.15);
       flex-direction: row;
       gap: 80px;
       flex-wrap: wrap;
+     
+
 
     
       animation: slideIn 2s ease forwards;
@@ -1000,3 +1002,16 @@ background: rgba(97, 99, 104, 0.15);
   width: fit-content;
   max-width: 80%;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
