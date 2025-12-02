@@ -8,12 +8,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css">
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 </head>
 <body>
 <div class="nav">
 
-<h1 id="nav">nav</h1>
+<h1 id="nav">
+  <img src="menu.png"  height="20px"   alt="">
+</h1>
 
 </div>
 <div class="main">
@@ -88,6 +90,8 @@
     
     <div class="chat-messages" id="chatMessages">
       <div class="message bot">
+        <div id="chatHistory" class="history"></div>
+
         <div class="message-content">
           👋 Hello! I'm your AI Study Assistant. I can help you with:
           <div class="list-item">7-day DSA and C learning plans</div>
@@ -205,6 +209,9 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
 
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"></script>
 
 <script>hljs.highlightAll();</script>
 

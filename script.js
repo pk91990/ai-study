@@ -79,14 +79,37 @@ User Query: "${message}"
 function addMessage(text, sender) {
   const div = document.createElement("div");
   div.className = `message ${sender}`;
-  const formattedText = marked.parse(text);
+  div.innerHTML = marked.parse(text);
 
-  div.innerHTML = formattedText;
   chatMessages.appendChild(div);
   chatMessages.scrollTop = chatMessages.scrollHeight;
 
- 
+  // render LaTeX after message loads
+  renderMathInElement(div, {
+    delimiters: [
+      { left: "$$", right: "$$", display: true },
+      { left: "$", right: "$", display: false }
+    ]
+  });
+
+  
 }
+
+
+function saveChatHistory(text) {
+  let history = JSON.parse(localStorage.getItem("chatHistory")) || [];
+
+  // Limit title preview
+  const title = text.slice(0, 40) + (text.length > 40 ? "..." : "");
+
+  history.push({ title, fullChat: chatMessages.innerHTML });
+  localStorage.setItem("chatHistory", JSON.stringify(history));
+
+  loadChatHistory();
+}
+
+
+
 
 function showLoading() {
   const div = document.createElement("div");
