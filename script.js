@@ -79,9 +79,13 @@ User Query: "${message}"
 function addMessage(text, sender) {
   const div = document.createElement("div");
   div.className = `message ${sender}`;
-  div.innerHTML = text.replace(/\n/g, "<br>");
+  const formattedText = marked.parse(text);
+
+  div.innerHTML = formattedText;
   chatMessages.appendChild(div);
   chatMessages.scrollTop = chatMessages.scrollHeight;
+
+ 
 }
 
 function showLoading() {
@@ -89,6 +93,10 @@ function showLoading() {
   div.id = "loading";
   div.className = "message bot";
   div.innerHTML = "Typing...";
+
+
+
+
   chatMessages.appendChild(div);
 }
 

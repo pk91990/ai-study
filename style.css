@@ -915,3 +915,88 @@ background: rgba(97, 99, 104, 0.15);
     .weak-topics-list {
       margin-top: 10px;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .message.bot {
+  width: 95%;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 15px;
+  margin: 10px auto;
+  line-height: 1.6;
+  font-size: 15px;
+  color: #151313;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+
+
+
+
+
+.message.bot {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 650px;
+  white-space: normal;
+  overflow-wrap: break-word;
+  line-height: 1.6;
+}
+
+
+
+
+.message.bot p {
+  margin: 4px 0;
+}
+
+.message.bot h1,
+.message.bot h2,
+.message.bot h3 {
+  margin-top: 12px;
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
+.message.bot ul, 
+.message.bot ol {
+  margin-left: 20px;
+  margin-bottom: 6px;
+}
+
+.message.bot li {
+  margin-bottom: 4px;
+}
+
+
+
+
+
+#chatMessages {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.message {
+  width: fit-content;
+  max-width: 80%;
+}
