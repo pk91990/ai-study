@@ -32,7 +32,8 @@
         background-size: cover;
         height: calc(100vh - 60px);
         display: flex;
-        justify-items: center;
+        
+       
         
     }
 
@@ -44,6 +45,7 @@
   border: 2px solid #0ff;
   border-radius: 12px;
   
+
   
  
   box-shadow: 0 0 10px #0ff, 0 0 20px rgb(109, 208, 208);
@@ -89,9 +91,9 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-left: 30px;
-  margin-top: 20px; 
+ 
   justify-items: center;
+  flex-wrap: wrap;
 }
 
 
@@ -153,8 +155,12 @@ background: rgba(97, 99, 104, 0.15);
     .task-generator {
       display: flex;
       flex-direction: row;
-      gap: 80px;
+      
       flex-wrap: wrap;
+      gap: 80px;
+      justify-content: center;
+
+      
      
 
 

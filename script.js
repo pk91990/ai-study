@@ -2,7 +2,7 @@
 const API_KEY =  localStorage.getItem("GEMINI_API_KEY");
 
     if (!API_KEY) {
-      window.location.href = "login.html";
+      window.location.href = "index.html";
     }
 
     function logout() {
