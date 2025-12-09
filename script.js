@@ -1,5 +1,14 @@
 
-const API_KEY = "AIzaSyA6JM8xH-B2R2OKT_UlEPTHChGsmDLvXZo";
+const API_KEY =  localStorage.getItem("GEMINI_API_KEY");
+
+    if (!API_KEY) {
+      window.location.href = "login.html";
+    }
+
+    function logout() {
+      localStorage.removeItem("GEMINI_API_KEY");
+      window.location.href = "index.html";
+    }
 const chatMessages = document.getElementById("chatMessages");
 const userInput = document.getElementById("userInput");
 const taskList = document.getElementById("taskList");
