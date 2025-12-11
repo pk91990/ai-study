@@ -1,166 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>AI Future Planner</title>
+  <meta charset="UTF-8">
+  <title>AI Study App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
 
-  body {
-    height: 100vh;
-    overflow-x: hidden;
-    background: url("https://i.ibb.co/5TSvZLP/city-bg.jpg") no-repeat center center/cover;
-    font-family: 'Orbitron', sans-serif;
-    color: #fff;
-  }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #0f172a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-  /* ---- MAIN UI CONTAINER ---- */
-  .panel {
-    width: 90%;
-    max-width: 450px;
-    margin: auto;
-    padding: 30px;
-    background: rgba(0, 255, 255, 0.08);
-    border: 2px solid #00eaff;
-    border-radius: 15px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 0 20px #00eaff;
-    margin-top: 40px;
-  }
+    .mobile-container {
+      width: 100%;
+      max-width: 420px;
+      min-height: 100vh;
+      background: #020617;
+      color: white;
+      display: flex;
+      flex-direction: column;
+    }
 
-  h1 {
-    text-align: center;
-    margin-bottom: 15px;
-    text-shadow: 0 0 10px cyan;
-  }
+    .top-bar {
+      padding: 16px;
+      background: #0ea5e9;
+      text-align: center;
+      font-weight: bold;
+      font-size: 18px;
+    }
 
-  input, select {
-    width: 100%;
-    padding: 12px;
-    border-radius: 8px;
-    border: 2px solid #00eaff;
-    background: rgba(0, 255, 255, 0.05);
-    color: cyan;
-    margin-top: 10px;
-    outline: none;
-  }
+    .content {
+      flex: 1;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
 
-  button {
-    width: 100%;
-    padding: 14px;
-    margin-top: 20px;
-    background: #00eaff;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: bold;
-    box-shadow: 0 0 15px #00eaff;
-    transition: 0.3s;
-  }
-  button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 25px #00eaff;
-  }
+    .content h2 {
+      margin-bottom: 8px;
+    }
 
-  /* ---- MATRIX SECTION ---- */
-  .matrix {
-    width: 90%;
-    max-width: 450px;
-    margin: 20px auto;
-    padding: 20px;
-    background: rgba(0, 255, 255, 0.07);
-    border: 2px solid #00eaff;
-    border-radius: 15px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 0 15px #00eaff;
-  }
+    .content p {
+      font-size: 14px;
+      opacity: 0.8;
+      margin-bottom: 25px;
+    }
 
-  .day {
-    margin-bottom: 15px;
-    padding: 12px;
-    background: rgba(0, 200, 255, 0.1);
-    border-left: 3px solid cyan;
-    border-radius: 8px;
-  }
+    .action-btn {
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      background: #22c55e;
+      color: black;
+      font-weight: bold;
+      margin-bottom: 12px;
+      cursor: pointer;
+    }
 
-  /* ---- SNOW EFFECT ---- */
-  .snow {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 9999;
-  }
+    .logout-btn {
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      background: #ef4444;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
 
-  .snow span {
-    position: absolute;
-    top: -10px;
-    background: white;
-    border-radius: 50%;
-    opacity: .9;
-    filter: drop-shadow(0 0 6px #00eaff);
-    animation: fall linear infinite;
-  }
-
-  @keyframes fall {
-    0% { transform: translateY(-100vh) translateX(0); }
-    100% { transform: translateY(120vh) translateX(30px); }
-  }
-
-  :root { --snowCount: 160; }
-
-  .snow span:nth-child(n) {
-    left: calc(100% * var(--i) / var(--snowCount));
-    width: calc(2px + (var(--i) % 6));
-    height: calc(2px + (var(--i) % 6));
-    animation-duration: calc(5s + (var(--i) * 0.2s));
-    animation-delay: calc(var(--i) * -0.3s);
-  }
-
-</style>
+    .action-btn:active,
+    .logout-btn:active {
+      transform: scale(0.97);
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- SNOW LAYER -->
-<div class="snow"></div>
+  <div class="mobile-container">
+    <div class="top-bar">
+      AI Study
+    </div>
 
-<!-- MAIN UI -->
-<div class="panel">
-  <h1>AI FUTURE PLANNER</h1>
-  <input type="text" placeholder="Enter Name">
-  <input type="email" placeholder="Enter Email">
-  <select>
-    <option>Select Future Path...</option>
-    <option>Artificial Intelligence</option>
-    <option>Quantum Robotics</option>
-    <option>Neural Engineering</option>
-    <option>Cybersecurity Specialist</option>
-  </select>
+    <div class="content">
+      <h2>Welcome Back</h2>
+      <p>Continue your smart learning journey.</p>
 
-  <button>UNLOCK POTENTIAL</button>
-</div>
+      <button class="action-btn">Start Learning</button>
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+  </div>
 
-<!-- MATRIX -->
-<div class="matrix">
-  <h2 style="text-align:center; margin-bottom:15px; text-shadow:0 0 10px cyan;">Your Learning Matrix</h2>
-
-  <div class="day">⭐ Day 1: Cybernetic Reading, Neural Input</div>
-  <div class="day">⭐ Day 2: AI Teaching, Network Mapping</div>
-  <div class="day">⭐ Day 3: System Sync, Quantum Upgrade</div>
-  <div class="day">⭐ Day 4: Future Skills, AI Deployment</div>
-</div>
-
-
-<script>
- // Generate Snowflakes
- const snowContainer = document.querySelector(".snow");
- for (let i = 1; i <= 160; i++) {
-   const flake = document.createElement("span");
-   flake.style.setProperty("--i", i);
-   snowContainer.appendChild(flake);
- }
-</script>
+  <script>
+    function logout() {
+      localStorage.clear();
+      window.location.href = "login.html";
+    }
+  </script>
 
 </body>
 </html>

@@ -22,9 +22,38 @@
 #nav img{
   margin-left: 20px;
 }
-.logout {
-  width: 10%;
-  height: 30px;
+.nav{
+  background-color: rgb(105, 160, 208);
+  width: 100vw;
+  padding: 10px 0;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.logout-btn {
+  width: auto;
+  height: auto;
+  padding: 10px 20px;
+  background: #ff4b4b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.logout-btn:hover {
+  background: #ff1f1f;
+}
+
+.logout-btn:active {
+  transform: scale(0.95);
 }
 
     .main{
